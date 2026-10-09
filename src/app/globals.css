@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ivory: #f4f6f8;
+  --teal: #16324f;
+  --teal-hover: #10263d;
+  --sage: #dce4ea;
+  --coral: #c58a4a;
+  --ink: #1f2933;
+  --secondary: #5b6770;
+  --muted: #e8edf1;
+  --success: #2f6b52;
+  --warning: #956c19;
+  --danger: #9b3a3a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+html[data-text-scale="large"] { font-size: 18px; }
+html[data-text-scale="extra"] { font-size: 20px; }
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: Inter, "Noto Sans Malayalam", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+button, input, select, textarea { font: inherit; }
+button:disabled { cursor: not-allowed; opacity: 0.6; }
+a { color: inherit; }
+
+::selection { background: var(--sage); color: var(--ink); }
+
+@layer components {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-ivory;
+  }
+
+  .panel {
+    @apply rounded-panel border-2 border-ink bg-white;
+  }
+
+  .hard-button {
+    @apply focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-md border-2 border-ink bg-teal px-4 py-2.5 text-sm font-semibold text-white shadow-hard-sm transition duration-150 hover:-translate-y-0.5 hover:bg-teal-hover hover:shadow-hard active:translate-y-0 active:shadow-none;
+  }
+
+  .soft-button {
+    @apply focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-md border-2 border-ink bg-white px-4 py-2.5 text-sm font-semibold text-ink transition duration-150 hover:-translate-y-0.5 hover:bg-sage hover:shadow-hard-sm active:translate-y-0 active:shadow-none;
+  }
+
+  .icon-button {
+    @apply focus-ring inline-flex size-11 items-center justify-center rounded-md border-2 border-ink bg-white text-ink transition duration-150 hover:-translate-y-0.5 hover:bg-sage hover:shadow-hard-sm active:translate-y-0 active:shadow-none;
+  }
+
+  .demo-label {
+    @apply inline-flex items-center gap-1 border border-ink bg-coral px-2 py-0.5 font-display text-[10px] font-bold tracking-[0.12em] text-ink;
+  }
+
+  .eyebrow {
+    @apply font-display text-xs font-bold tracking-[0.14em] text-teal;
+  }
+
+  .input-base {
+    @apply focus-ring min-h-11 w-full rounded-md border-2 border-ink bg-white px-3 py-2 text-sm text-ink placeholder:text-secondary;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print, header, .ask-pulse-root { display: none !important; }
+  body { background: #fff; }
+  .print-card { border: 1px solid #000 !important; box-shadow: none !important; }
+}
