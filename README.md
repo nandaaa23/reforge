@@ -27,6 +27,13 @@ KTU Pulse is a redesigned student portal concept for APJ Abdul Kalam Technologic
 
 The final stack may vary depending on the existing project setup.
 
+## Video
+
+
+https://github.com/user-attachments/assets/c710f30a-bc3c-40a2-8ac4-13c66c9b1e57
+
+
+
 ## Getting Started
 
 ### Prerequisites
